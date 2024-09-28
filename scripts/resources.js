@@ -17,7 +17,7 @@ function createCard(item) {
     card.innerHTML = `
         <div class="card-inner">
             <div class="card-front">
-                <img src="../assets/images/ard.jpg" alt="${item.name}">
+                <img src="images/ard.jpg" alt="${item.name}">
                 <div class="card-label">${item.name}</div>
             </div>
             <div class="card-back">
