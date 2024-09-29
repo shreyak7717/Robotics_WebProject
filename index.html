@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotics Club Contact Page</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&family=Red+Rose&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Red Rose', sans-serif;
+            background-color: #161616;
+            color: #fff;
+            max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px;
+            background-color: #161616;
+            width: 100%;
+        }
+
+        nav a {
+            margin-left: 40px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: #00ccff;
+        }
+
+        /* Form Box Headings */
+        .form-container {
+            font-family: 'Abhaya Libre', serif;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: small;
+            /* padding: 10px; */
+        }
+
+        .form-left, .form-right {
+            flex: 1;
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-left {
+            max-width: 28%;
+            margin-left: 10rem;
+            align-content: center;
+        }
+
+        .form-right {
+            max-width: 28%;
+            margin-right: 10rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            background-color: #29cde3bc;
+            border-radius: 10px;
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        .feedback-box {
+            width: 100%;
+            padding: 15px;
+            background-color: #29cde3bc;
+            border-radius: 10px;
+            border: none;
+            height: 14rem;
+            resize: none;
+            
+        }
+
+
+        /* Footer */
+        footer {
+            background-color: #071018;
+            padding: 30px;
+            width: 100%;
+            height: 40rem;
+            /* margin-top: auto; Ensures footer stays at the bottom */
+        }
+
+        .footer-content {
+            margin-top: 3rem;
+            display: flex;
+            justify-content: center;
+            color: #a6a6a6;
+        }
+
+        .footer-section {
+            width: 24%;
+        }
+
+        .footer-section h3 {
+            font-family: 'Red Rose', sans-serif;
+            color: #29CDE3;
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: 300;
+            font-size: 18px;
+        }
+
+        .footer-section a {
+            display: block;
+            color: #888;
+            margin: 10px 0;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #00ccff;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .solid-line {
+            border: none;
+            border-top: 2px solid #66666645; /* 2px thick solid black line */
+            margin: 20px 0;
+        }
+        .footer-bottom {
+            display: flex;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+            justify-content: space-between;
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+
+        .footer-bottom a {
+            color: #888;
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: #00ccff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Events</a>
+        <a href="#">Resources</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Contact Form (Example for demonstration) -->
+    <div class="form-container">
+        <!-- Left side with Name, Email, and Issue Type -->
+        <div class="form-left">
+            <div>
+                <h2 class="form-heading">Name</h2>
+                <input type="text" class="form-input">
+            </div>
+    
+            <div>
+                <h2 class="form-heading">Email</h2>
+                <input type="email" class="form-input">
+            </div>
+    
+            <div>
+                <h2 class="form-heading">Issue Type</h2>
+                <select class="form-input"> 
+                    <option>Bug</option>
+                    <option>Feature Request</option>
+                    <option>General Inquiry</option>
+                </select>
+            </div>
+        </div>
+    
+        <!-- Right side with Feedback Box -->
+        <div class="form-right">
+            <div>
+                <h2 class="form-heading">Feedback</h2>
+                <textarea class="feedback-box"></textarea>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ROBOTICS CLUB</h3>
+                <p>The Official Robotics Club of BMU</p>
+            </div>
+            <div class="footer-section">
+                <h3>QUICK LINKS</h3>
+                <a href="#">Gallery</a>
+                <a href="#">Our Team</a>
+                <a href="#">Timeline</a>
+            </div>
+            <div class="footer-section">
+                <h3>CONTACT US</h3>
+                <p>Email: Robotics@Bmu.Edu</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+            <div class="footer-section">
+                <h3>FOLLOW US</h3>
+                <div class="social-icons">
+                    <a href="#">📷</a>
+                    <a href="#">🔗</a>
+                    <a href="#">🐦</a>
+                    <a href="#">🎥</a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="solid-line">
+
+        <div class="footer-bottom">
+            <div>© 2024 Robotics Club. All Rights Reserved.  </div>
+        <div><a href="#">Privacy Policy</a></div>
+        </div>
+    </footer>
+
+</body>
+</html>
