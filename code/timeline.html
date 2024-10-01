@@ -1,7 +1,5 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Red+Rose:wght@300..700&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&display=swap" rel="stylesheet" />
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,8 +7,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timeline</title>
-    <link href='./styles.css' rel="stylesheet" />
+    <link href='styles.css' rel="stylesheet" />
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@400;500;600;700&display=swap');
         /* Styles for the modal (flashcard) */
         .modal {
             display: none;
@@ -49,6 +49,7 @@
         }
         .timeline-marker:hover{
             color: #29cde3;
+            
         }
         .timeline {
     width: 80%;
@@ -95,30 +96,74 @@
     color: #00c0ff;
     font-size: 14px;
   }
+  header{
+      
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0px;
+  }
+  .logo{
+      display: flex;
+      margin-left: 0.5rem;
+      height: 58px;
+
+  }
+  .logo h1{
+      color: #ffffff;
+      text-decoration: none;
+      font-family: 'Abhaya Libre', serif;
+      font-weight: 700;
+      font-size: 40px; 
+      margin-left: 20px;
+  }
+
+  .logo img {
+      height: 60px;
+  }
+
+  nav{
+      display: flex;
+      justify-content: space-between;
+      
+  }
+  nav a{
+      color: #ffffff;
+      text-decoration: none;
+      font-family: 'Red Rose', cursive;
+      font-size: 16px;
+      margin-right: 4.5rem;
+      font-weight: 70;
+  }
+
+  #nav-item{
+      margin-top: 1rem;
+  }
     </style>
 </head>
-<body>
-    <nav class="main_nav">
-        <a href="./index.html" ><img src="./assets/logo.png" alt="logo" id="logo" /></a>
-        <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="#about">Events</a></li>
-            <li><a href="#services">Resources</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<body style="background-image: none; background-color: #161616;">
     <header>
-        <h1
+        <div class="logo">
+            <a href="" ><img src="assets/roboticslogowhite.png"></a>
+        </div>
+        <nav>
+            <a href="index.html" id="nav-item">HOME</a>
+            <a href="gallery.html" id="nav-item">EVENTS</a>
+            <a href="resources.html" id="nav-item">RESOURCES</a>
+            <a href="ContactUs.html" id="nav-item">CONTACT</a>
+        </nav>
+        
+    </header>
+    <h1
             style="
                 color: #29cde3;
                 font-family: 'Abhaya Libre', serif;
                 font-size: 64px; /* Added px unit */
-                text-align: center;
+                margin-left: 7rem;
+                
             "
         >
             Timeline
         </h1>
-    </header>
     <div class="timeline">
         <article class="timeline-event">
             <div class="timeline-marker" onclick="document.getElementById('modal').style.display='flex';"></div>
