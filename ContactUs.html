@@ -24,6 +24,7 @@
             flex-direction: column;
             padding: 0px;
             margin: 0px;
+            overflow:hidden;
         }
 
         /* Navigation */
@@ -104,11 +105,11 @@
         .form-input {
             width: 100%;
             padding: 15px;
-            background-color: #061f22bc;
+            background-color: #061f22d4;
             border: none;
             margin-bottom: 20px;
             border-radius: 10px;
-            box-shadow:0 0 4px #219fadbc;
+            box-shadow:0 0 4px #30e1f5bc;
             color: #ffffff;
             font-size: 16px;
         }
@@ -117,21 +118,24 @@
         .feedback-box {
             width: 100%;
             padding: 15px;
-            background-color: #061f22bc;
+            background-color: #061f22d4;
             border-radius: 10px;
             border: none;
             height: 14rem;
             resize: none;
-            box-shadow:0 0 4px #219fadbc;
+            box-shadow:0 0 4px #30e1f5bc;
             color: #ffffff;
             font-size: 16px;
         }
+        .feedback-box::-webkit-scrollbar {
+            display: none;
+        }
 
-        /* input:focus, feedback-box:focus {
-            outline: none;  
-            border: none;
-            box-shadow: none; 
-        } */
+        .form-input:focus, .feedback-box:focus {
+            box-shadow:0 0 6px #30e1f5bc;
+            outline: none; 
+        }
+
 
 
         /* Footer */
@@ -161,7 +165,7 @@
 
         .footer-section h3 {
             font-family: 'Red Rose', sans-serif;
-            color: #29CDE3;
+            color: #30e1f5bc;
             font-size: 20px;
             margin-bottom: 18px;
             font-weight: 100;
@@ -176,7 +180,7 @@
         }
 
         .footer-section a:hover {
-            color: #00ccff;
+            color: #061f22bc;
         }
 
         .social-icons {
@@ -209,9 +213,6 @@
             text-decoration: none;
         }
 
-        .footer-bottom a:hover {
-            color: #00ccff;
-        }
 
     </style>
 </head>
