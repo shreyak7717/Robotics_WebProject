@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@400;500;600;700&display=swap');
+body{
+    background-color: #161616;
+    padding: 0px;
+    margin: 0px;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 25px;
+    margin-top: 0px;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    height: 100px;
+
+}
+.logo h1{
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Abhaya Libre', serif;
+    font-weight: 700;
+    font-size: 40px; 
+    margin-left: 20px;
+}
+
+.logo img {
+    height: 60px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    
+}
+nav a{
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Red Rose', cursive;
+    font-size: 16px;
+    margin-right: 4.5rem;
+    font-weight: 700;
+
+}
+
+.gallery-container {
+            display: flex;
+            padding: 2rem;
+        }
+        .image-collage {
+            flex: 1;
+            position: relative;
+            height: 400px;
+            margin-top: 2rem;
+            margin-left: 5rem;
+        }
+        .collage-image {
+            position: absolute;
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        }
+        .collage-image:nth-child(1) {
+            top: 0;
+            left: 0;
+            transform: rotate(-5deg);
+        }
+        .collage-image:nth-child(2) {
+            top: 100px;
+            left: 150px;
+            transform: rotate(5deg);
+        }
+        .collage-image:nth-child(3) {
+            top: 200px;
+            left: 50px;
+            transform: rotate(-3deg);
+        }
+        .gallery-content {
+            flex: 1;
+            padding-left: 2rem;
+        }
+</style>
+</head>
+<body>
+    
+    <header>
+        <div class="logo">
+            <a href="" ><img src="assets/logo.png"></a>
+            <h1>GALLERY</h1>
+        </div>
+        <nav>
+            <a href="" id="nav-item">HOME</a>
+            <a href="/gallery" id="nav-item">EVENTS</a>
+            <a href="/resources" id="nav-item">RESOURCES</a>
+            <a href="" id="nav-item">CONTACT</a>
+        </nav>
+    </header>
+
+    <div class="gallery-container"></div>
+        <div class="image-collage">
+            <img src="https://via.placeholder.com/200x150?text=Robo+Event+1" alt="Robo Event 1" class="collage-image">
+            <img src="https://via.placeholder.com/200x150?text=Robo+Event+2" alt="Robo Event 2" class="collage-image">
+            <img src="https://via.placeholder.com/200x150?text=Robo+Event+3" alt="Robo Event 3" class="collage-image">
+        </div>
+        <div class="gallery-content">
+            <h1>GALLERY</h1>
+            <div class="gallery-item" data-gallery="robo-nitrous">Robo Nitrous</div>
+            <div class="gallery-item" data-gallery="robo-war">Robo War</div>
+            <div class="gallery-item" data-gallery="robo-soccer">Robo Soccer</div>
+            <div class="gallery-item" data-gallery="robo-race">Robo Race</div>
+            <div class="gallery-item" data-gallery="drone-racing">Drone Racing</div>
+            <div class="gallery-item" data-gallery="robo-ignite">Robo Ignite</div>
+        </div>
+    </div>
+    <script>
+    </script>
+    </body>
+    </html>

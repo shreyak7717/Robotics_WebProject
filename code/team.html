@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./css/main.css" rel="stylesheet">
+  <title>Team Page</title>
+  <style>
+    /* General styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: black;
+  color: white;
+  overflow-x: hidden;
+}
+.main_nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .main_nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  .main_nav ul li {
+    margin-left: 7vw;
+  }
+
+  .main_nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-family: "Red Rose";
+    font-size: 18px;
+  }
+
+
+
+
+.title {
+  font-family: 'Abhaya Libre ExtraBold', serif;
+  font-size: 4rem;
+  color: #A2EBF5;
+  position: relative;
+  left: 100px;
+}
+
+.subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  color: #1E818F;
+  margin-top: 20px;
+  width: 60%;
+  position: relative;
+  left: 100px;
+}
+
+.team-section {
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+  flex-wrap: wrap;
+  padding: 40px;
+}
+
+.team-member {
+  background-color: rgba(41, 204, 227, 0.5);
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px;
+  max-width: 200px;
+}
+
+.member-img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.member-name {
+  font-family: 'Kodchasan', sans-serif;
+  margin-top: 15px;
+  font-size: 1.1rem;
+  color: black;
+}
+
+.member-role {
+  font-family: 'Kodchasan', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.7);
+  margin-top: 5px;
+}
+/* Typewriter effect */
+.type-writer {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.5rem;
+  color: #1E818F;
+  margin-top: 20px;
+  padding-left: 100px; /* Start typing 10px from the left */
+  border-right: 2px solid rgba(255, 255, 255, 0.75); /* Cursor effect */
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  animation: typewriter 4s steps(40, end), blinkTextCursor 0.75s step-end infinite;
+}
+
+/* Typewriter keyframes */
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 50%; }
+}
+/* Cursor blink effect */
+@keyframes blinkTextCursor {
+  0% { border-right-color: #1E818F; }
+  50% { border-right-color: transparent; }
+  100% { border-right-color: transparent; } /* Stops cursor after animation */
+}
+
+
+    </style>
+</head>
+<body>
+    <nav class="main_nav">
+      <a href="./index.html" ><img src="./assets/logo.png" alt="logo" id="logo" /></a>
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="#about">Events</a></li>
+          <li><a href="#services">Resources</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    <section class="intro-section">
+      <h1 class="title">MEET THE TEAM</h1>
+      <p class="subtitle">Meet the innovative minds behind the robotics club, where creativity and technology come together to build the future!</p>
+      <p class="type-writer">Innovators.builders.Visoinaries</p>
+    </section>
+
+    <section class="team-section">
+      <div class="team-member">
+        <img src="./assets/shreya.png" alt="Shreya Khandelwal" class="member-img">
+        <h3 class="member-name">SHREYA KHANDELWAL</h3>
+        <p class="member-role">Web Developer</p>
+      </div>
+
+      <div class="team-member">
+        <img src="./assets/shreya.png" alt="Shreya Khandelwal" class="member-img">
+        <h3 class="member-name">SHREYA KHANDELWAL</h3>
+        <p class="member-role">Web Developer</p>
+      </div>
+      <div class="team-member">
+        <img src="./assets/shreya.png" alt="Shreya Khandelwal" class="member-img">
+        <h3 class="member-name">SHREYA KHANDELWAL</h3>
+        <p class="member-role">Web Developer</p>
+      </div>
+      <div class="team-member">
+        <img src="./assets/shreya.png" alt="Shreya Khandelwal" class="member-img">
+        <h3 class="member-name">SHREYA KHANDELWAL</h3>
+        <p class="member-role">Web Developer</p>
+      </div>
+      <div class="team-member">
+        <img src="./assets/shreya.png" alt="Shreya Khandelwal" class="member-img">
+        <h3 class="member-name">SHREYA KHANDELWAL</h3>
+        <p class="member-role">Web Developer</p>
+      </div>
+      <div class="team-member">
+        <img src="./assets/shreya.png" alt="Shreya Khandelwal" class="member-img">
+        <h3 class="member-name">SHREYA KHANDELWAL</h3>
+        <p class="member-role">Web Developer</p>
+      </div>
+      <div class="team-member">
+        <img src="./assets/shreya.png" alt="Shreya Khandelwal" class="member-img">
+        <h3 class="member-name">SHREYA KHANDELWAL</h3>
+        <p class="member-role">Web Developer</p>
+      </div>
+      <div class="team-member">
+        <img src="./assets/shreya.png" alt="Shreya Khandelwal" class="member-img">
+        <h3 class="member-name">SHREYA KHANDELWAL</h3>
+        <p class="member-role">Web Developer</p>
+      </div>
+      <div class="team-member">
+        <img src="./assets/shreya.png" alt="Shreya Khandelwal" class="member-img">
+        <h3 class="member-name">SHREYA KHANDELWAL</h3>
+        <p class="member-role">Web Developer</p>
+      </div>
+    </section>
+</body>
+</html>
+ 
