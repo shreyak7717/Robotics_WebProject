@@ -14,49 +14,47 @@ body{
 }
 
 header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 25px;
-    margin-top: 0px;
-}
-.logo{
-    display: flex;
-    align-items: center;
-    height: 100px;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0px;
+    }
+    .logo{
+        display: flex;
+        margin-left: 0.5rem;
+        height: 58px;
 
-}
-.logo h1{
-    color: #ffffff;
-    text-decoration: none;
-    font-family: 'Abhaya Libre', serif;
-    font-weight: 700;
-    font-size: 40px; 
-    margin-left: 20px;
-}
+    }
+    .logo h1{
+        color: #ffffff;
+        text-decoration: none;
+        font-family: 'Abhaya Libre', serif;
+        font-weight: 700;
+        font-size: 40px; 
+        margin-left: 20px;
+        margin-top: .5rem;
+    }
 
-.logo img {
-    height: 60px;
-}
+    .logo img {
+        height: 60px;
+    }
 
-nav{
-    display: flex;
-    justify-content: space-between;
-    
-}
-nav a{
-    color: #ffffff;
-    text-decoration: none;
-    font-family: 'Red Rose', cursive;
-    font-size: 16px;
-    margin-right: 4.5rem;
-    font-weight: 700;
+    nav{
+        display: flex;
+        justify-content: space-between;
+        
+    }
+    nav a{
+        color: #ffffff;
+        text-decoration: none;
+        font-family: 'Red Rose', cursive;
+        font-size: 16px;
+        margin-right: 4.5rem;
+        font-weight: 70;
+    }
 
-}
-
-
-
-
+    #nav-item{
+        margin-top: 1rem;
+    }
 
 .search-container{
     margin-right: 4rem;
@@ -97,7 +95,7 @@ nav a{
     transition: transform 0.6s;
     transform-style: preserve-3d;
 }
-.card.flipped .card-inner {
+.card:hover .card-inner {
     transform: rotateY(180deg);
 }
 .card-front, .card-back {
@@ -147,8 +145,8 @@ nav a{
             <h1>RESOURCES</h1>
         </div>
         <nav>
-            <a href="" id="nav-item">HOME</a>
-            <a href="gallery.html" id="nav-item">EVENTS</a>
+            <a href="index.html" id="nav-item">HOME</a>
+            <a href="events.html" id="nav-item">EVENTS</a>
             <a href="resources.html" id="nav-item">RESOURCES</a>
             <a href="ContactUs.html" id="nav-item">CONTACT</a>
         </nav>
