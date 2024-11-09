@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@400;500;600;700&display=swap');
+
+.gallery-container {
+    display: flex;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.gallery-container::before {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    z-index: -1;
+}
+
+.image-collage {
+    margin-top: 0rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, #DAFAFF 0%, #1e6b76 20%, rgba(18,18,18,0) 37%);
+    flex: 1;
+    position: relative;
+    width: 100%; /* Adjust width for responsiveness */
+    height: 0;
+    padding-top: 20%; /* Maintains a square aspect ratio */
+}
+
+.collage-image {
+    position: absolute;
+    width: 20%; /* Set as a percentage for responsiveness */
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out;
+}
+
+.collage-image:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    z-index: 10;
+}
+
+/* Position images within the collage */
+.collage-image:nth-child(1) {
+    top: 30%;
+    left: 32%;
+    transform: rotate(-5deg);
+}
+
+.collage-image:nth-child(2) {
+    top: 20%;
+    left: 47%;
+    transform: rotate(5deg);
+}
+
+.collage-image:nth-child(3) {
+    top: 45%;
+    left: 42%;
+    transform: rotate(-3deg);
+}
+
+.gallery-content {
+    flex: 1;
+    padding-left: 0rem;
+    margin-top: 2rem;
+}
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    color: #ffffff;
+}
+
+.gallery-item:not(:first-child) {
+    margin-top: 2.3rem;
+}
+
+.gallery-item {
+    font-family: 'Abhaya Libre', serif;
+    font-weight: 700;
+    margin-left: 10rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: color 0.3s;
+    color: #ffffff;
+} 
+
+.gallery-item:hover {
+    color: #00bcd4;
+}
+
+.gallery-item::before {
+    margin-right: 0.5rem;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: 5% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 700px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #fff;
+}
+
+.modal-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}

@@ -5,20 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/<%= pageTitle.toLowerCase() %>.css">
+    <link rel="stylesheet" href="styles/<%= pageTitle.toLowerCase().replace(/\s+/g, '') %>.css">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
     
     <header>
         <div class="logo">
-            <a href="" ><img src="images/logo.png"></a>
-            <h1><%= pageTitle %></h1>
+            <a href=""><img src="images/logo.png" alt="Robotics Club Logo"></a>
+            <h1><%= pageTitle === 'Contact Us' ? 'ContactUs' : pageTitle %></h1>
         </div>
         <nav>
-            <a href="" id="nav-item">HOME</a>
-            <a href="/gallery" id="nav-item">EVENTS</a>
+            <a href="/" id="nav-item">HOME</a>
+            <a href="/events" id="nav-item">EVENTS</a>
             <a href="/resources" id="nav-item">RESOURCES</a>
-            <a href="" id="nav-item">CONTACT</a>
+            <a href="/ContactUs" id="nav-item">CONTACT</a>
         </nav>
     </header>
+</body>
+</html>

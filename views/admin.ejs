@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Resources</title>
+    <link rel="stylesheet" href="styles/admin.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>ADMIN PANEL</h1>
+        </div>
+    </header>
+
+    <div class="admin-container">
+        <h2>Add New Resource</h2>
+        <form id="resourceForm">
+            <div class="form-group">
+                <label for="name">Resource Name:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" required>
+            </div>
+            <div class="form-group">
+                <label for="image">Image URL:</label>
+                <input type="text" id="image" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" rows="3"></textarea>
+            </div>
+            <button type="submit">Add Resource</button>
+        </form>
+
+        <div class="resources-list">
+            <h3>Current Resources</h3>
+            <div id="resourcesList"></div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

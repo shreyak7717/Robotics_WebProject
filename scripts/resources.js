@@ -1,13 +1,6 @@
-const inventoryItems = [
-    { name: 'Pratyaksh', quantity: 15 },
-    { name: 'Shreya', quantity: 10 },
-    { name: 'Ravi', quantity: 20 },
-    { name: 'Arduino DUE', quantity: 5 },
-    { name: 'Arduino MICRO', quantity: 8 },
-    { name: 'Arduino LEONARDO', quantity: 12 },
-    { name: 'Arduino YUN', quantity: 3 },
-    { name: 'Arduino PRO MINI', quantity: 7 }
-];
+
+let inventoryItems = JSON.parse(localStorage.getItem('resources')) || [];
+
 
 const inventoryGrid = document.getElementById('inventoryGrid');
 
@@ -26,8 +19,11 @@ function createCard(item) {
             </div>
         </div>
     `;
-    card.addEventListener('click', () => {
-        card.classList.toggle('flipped');
+    card.addEventListener('mouseenter', () => {
+        card.classList.add('flipped');
+    });
+    card.addEventListener('mouseleave', () => {
+        card.classList.remove('flipped');
     });
     return card;
 }
