@@ -33,4 +33,8 @@ router.get('/gallery',(req,res)=>{
 router.get('/gallery1',(req,res)=>{
     res.render('gallery1')
 })
+
+router.get('/team',(req,res)=>{
+    res.render('team')
+})
 module.exports= router;
