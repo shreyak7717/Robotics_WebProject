@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - Resources</title>
+    <title>Admin Panel - Resources and Team</title>
     <link rel="stylesheet" href="styles/admin.css">
 </head>
 <body>
@@ -13,6 +13,7 @@
         </div>
     </header>
 
+    <!-- Resources Section -->
     <div class="admin-container">
         <h2>Add New Resource</h2>
         <form id="resourceForm">
@@ -37,7 +38,32 @@
 
         <div class="resources-list">
             <h3>Current Resources</h3>
-            <div id="resourcesList"></div>
+            <div id="resourcesList" class="resource-cards"></div>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="admin-container">
+        <h2>Add Team Member</h2>
+        <form id="teamForm">
+            <div class="form-group">
+                <label for="teamName">Name:</label>
+                <input type="text" id="teamName" required>
+            </div>
+            <div class="form-group">
+                <label for="teamRole">Role:</label>
+                <input type="text" id="teamRole" required>
+            </div>
+            <div class="form-group">
+                <label for="teamImage">Image URL:</label>
+                <input type="text" id="teamImage" required>
+            </div>
+            <button type="submit">Add Team Member</button>
+        </form>
+
+        <div class="team-list">
+            <h3>Current Team Members</h3>
+            <div id="teamList" class="team-cards"></div>
         </div>
     </div>
 
