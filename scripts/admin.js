@@ -1,17 +1,31 @@
-// Initialize resources and team members arrays from localStorage or empty arrays
-let resources = JSON.parse(localStorage.getItem('resources')) || [];
-let teamMembers = JSON.parse(localStorage.getItem('teamMembers')) || [];
-
-// Function to save resources and team members to localStorage
 function saveResources() {
-    localStorage.setItem('resources', JSON.stringify(resources));
+    const jsonString = JSON.stringify(resources);  
+    localStorage.setItem('resources', jsonString);
+    console.log("Saved Resources:", resources);  // Log the resources each time they are saved
+
 }
 
 function saveTeamMembers() {
-    localStorage.setItem('teamMembers', JSON.stringify(teamMembers));
+    const jsonString = JSON.stringify(teamMembers);  
+    localStorage.setItem('teamMembers', jsonString);
 }
 
-// Function to add a new resource
+function loadResources() {
+    const resourcesString = localStorage.getItem('resources');
+    console.log("Loaded Resources:", resourcesString);  // Log loaded resources
+
+    return resourcesString ? JSON.parse(resourcesString) : [];  
+
+}
+
+function loadTeamMembers() {
+    const teamMembersString = localStorage.getItem('teamMembers');
+    return teamMembersString ? JSON.parse(teamMembersString) : [];  
+}
+
+let resources = loadResources();
+let teamMembers = loadTeamMembers();
+
 function addResource(e) {
     e.preventDefault();
     
@@ -24,12 +38,11 @@ function addResource(e) {
     };
 
     resources.push(newResource);
-    saveResources();
+    saveResources();  
     displayResources();
     e.target.reset();
 }
 
-// Function to add a new team member
 function addTeamMember(e) {
     e.preventDefault();
 
@@ -41,7 +54,7 @@ function addTeamMember(e) {
     };
 
     teamMembers.push(newTeamMember);
-    saveTeamMembers();
+    saveTeamMembers();  
     displayTeamMembers();
     e.target.reset();
 }
@@ -49,18 +62,16 @@ function addTeamMember(e) {
 // Function to delete a resource
 function deleteResource(id) {
     resources = resources.filter(resource => resource.id !== id);
-    saveResources();
+    saveResources();  
     displayResources();
 }
 
-// Function to delete a team member
 function deleteTeamMember(id) {
     teamMembers = teamMembers.filter(member => member.id !== id);
-    saveTeamMembers();
+    saveTeamMembers(); 
     displayTeamMembers();
 }
 
-// Function to display resources as cards
 function displayResources() {
     const resourcesList = document.getElementById('resourcesList');
     resourcesList.innerHTML = resources.map(resource => `
@@ -91,7 +102,6 @@ function displayTeamMembers() {
     `).join('');
 }
 
-// Event listeners
 document.getElementById('resourceForm').addEventListener('submit', addResource);
 document.getElementById('teamForm').addEventListener('submit', addTeamMember);
 
