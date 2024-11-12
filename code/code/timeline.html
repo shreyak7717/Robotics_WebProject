@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timeline</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href='/styles.css' rel="stylesheet" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@400;500;600;700&display=swap');
+        /* Styles for the modal (flashcard) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            display: flex;
+            background-color: white;
+            gap: 20px;
+            border-radius: 8px;
+            padding: 20px;
+            width: 800px;
+            position: relative;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        .event-title, .timeline-marker {
+            cursor: pointer; /* Make the event title clickable */
+            font-weight: bold; /* Add emphasis to event titles */
+            transition: color 0.3s;
+        }
+        .event-title:hover {
+            color: #29cde3; /* Change color on hover */
+        }
+        .timeline-marker:hover{
+            color: #29cde3;
+        }
+        .timeline {
+            width: 80%;
+            margin: 50px auto;
+            margin-top: 0px;
+            position: relative;
+            margin-bottom: 30px; /* Increased gap between the sticks */
+            border-left: 3px solid #00c0ff; /* Stick */
+            padding-left: 40px;
+        }
+        .timeline-event {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0px;
+            position: relative;
+        }
+        .timeline-marker {
+            background-color: #00c0ff; /* Blue Circle */
+            width: 20px; /* Circle size */
+            height: 20px;
+            border-radius: 50%; /* Makes it a circle */
+            position: absolute;
+            left: -51px; /* Aligns it on the stick */
+            top: -22px; /* Moves the circle to align on top of the stick */
+            margin: 0px;
+        }
+        .timeline-content {
+            flex: 1;
+            padding-right: 20px;
+        }
+        .event-title {
+            font-size: 18px;
+            color: #00c0ff;
+            margin-bottom: 10px;
+        }
+        .event-description {
+            font-size: 16px;
+            color: #ffffff;
+        }
+        .event-time {
+            color: #00c0ff;
+            font-size: 14px;
+        }
+        header{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0px;
+        }
+        .logo{
+            display: flex;
+            margin-left: 0.5rem;
+            height: 58px;
+        }
+        .logo h1{
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Abhaya Libre', serif;
+            font-weight: 700;
+            font-size: 40px; 
+            margin-left: 20px;
+        }
+        .logo img {
+            height: 60px;
+        }
+        nav{
+            display: flex;
+            justify-content: space-between;
+        }
+        nav a{
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Red Rose', cursive;
+            font-size: 16px;
+            margin-right: 4.5rem;
+            font-weight: 70;
+        }
+        #nav-item{
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body style="background-image: none; background-color: #161616;">
+    <header>
+        <div class="logo">
+            <a href="" ><img src="assets/roboticslogowhite.png"></a>
+            <h1>Robotics Club</h1>
+        </div>
+        <nav>
+            <a href="index.html" id="nav-item">HOME</a>
+            <a href="gallery.html" id="nav-item">EVENTS</a>
+            <a href="resources.html" id="nav-item">RESOURCES</a>
+            <a href="ContactUs.html" id="nav-item">CONTACT</a>
+        </nav>
+    </header>
+    <h1 style="color: #29cde3; font-family: 'Abhaya Libre', serif; font-size: 64px; margin-left: 7rem;">Timeline</h1>
+    <div class="timeline" id="timeline-container">
+        <!-- Timeline events will be dynamically generated here -->
+    </div>
+    <div id="modal" class="modal" onclick="this.style.display='none';">
+        <div class="modal-content" onclick="event.stopPropagation();">
+            <span class="close" onclick="document.getElementById('modal').style.display='none';">&times;</span>
+            <img src="" id="modal-image" style="height: 300px; width: 330px;">
+            <div>
+            <h2 style="color: #29cde3;" id="modal-title"></h2>
+            <p style="color: black;" id="modal-description"></p>
+        </div>
+        </div>
+    </div>
+    <script>
+        // Fetch timeline event data from the server
+        fetch('/api/timeline')
+            .then(response => response.json())
+            .then(data => {
+                const timelineContainer = document.getElementById('timeline-container');
+
+                data.forEach(event => {
+                    const timelineEvent = document.createElement('div');
+                    timelineEvent.classList.add('timeline-event');
+
+                    const timelineMarker = document.createElement('div');
+                    timelineMarker.classList.add('timeline-marker');
+                    timelineMarker.onclick = () => showModal(event);
+
+                    const timelineContent = document.createElement('div');
+                    timelineContent.classList.add('timeline-content');
+
+                    const eventTitle = document.createElement('span');
+                    eventTitle.classList.add('event-title');
+                    eventTitle.onclick = () => showModal(event);
+                    eventTitle.textContent = event.title;
+
+                    const eventDescription = document.createElement('p');
+                    eventDescription.classList.add('event-description');
+                    eventDescription.textContent = event.description;
+
+                    const eventTime = document.createElement('div');
+                    eventTime.classList.add('event-time');
+                    eventTime.textContent = event.time;
+
+                    timelineContent.appendChild(eventTitle);
+                    timelineContent.appendChild(eventDescription);
+                    timelineEvent.appendChild(timelineMarker);
+                    timelineEvent.appendChild(timelineContent);
+                    timelineEvent.appendChild(eventTime);
+                    timelineContainer.appendChild(timelineEvent);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching timeline data:', error);
+            });
+
+        function showModal(event) {
+            const modalImage = document.getElementById('modal-image');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDescription = document.getElementById('modal-description');
+
+            modalImage.src = event.imageUrl;
+            modalTitle.textContent = event.title;
+            modalDescription.textContent = event.description;
+
+            document.getElementById('modal').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>

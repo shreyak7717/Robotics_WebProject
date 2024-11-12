@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Abhaya+Libre:wght@400;700;800&family=Red+Rose:wght@400;700&display=swap" rel="stylesheet">
+    <title>Team Page</title>
+<style>
+/* General styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: black;
+    color: white;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0px;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    display: flex;
+    margin-left: 0.5rem;
+    height: 58px;
+}
+
+.logo h1 {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Abhaya Libre', serif;
+    font-weight: 700;
+    font-size: 40px;
+    margin-left: 20px;
+}
+
+.logo img {
+    height: 60px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Red Rose', cursive;
+    font-size: 16px;
+    margin-right: 4.5rem;
+    font-weight: 70;
+}
+
+.intro-section {
+    padding: 4rem 0;
+}
+
+.title {
+    font-family: 'Abhaya Libre ExtraBold', serif;
+    font-size: 4rem;
+    color: #A2EBF5;
+    position: relative;
+    left: 100px;
+}
+
+.subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    color: #1E818F;
+    margin-top: 20px;
+    width: 60%;
+    position: relative;
+    left: 100px;
+}
+
+.type-writer {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.5rem;
+    color: #1E818F;
+    margin-top: 20px;
+    padding-left: 100px;
+    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    animation: typewriter 4s steps(40, end), blinkTextCursor 0.75s step-end infinite;
+}
+
+/* Slider styles */
+.slider-section {
+    margin-top: 4rem;
+    position: relative;
+    overflow: hidden;
+    padding: 2rem 0;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-320px * 8)); }
+}
+
+.slider {
+    display: flex;
+    gap: 20px;
+    animation: scroll 40s linear infinite;
+    width: fit-content;
+    padding: 0 2rem;
+}
+
+.slider:hover {
+    animation-play-state: paused;
+}
+
+.card__article {
+    width: 300px;
+    min-width: 300px;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    transition: transform 0.3s;
+    background-color: #111;
+}
+
+.card__article:hover {
+    transform: scale(1.05);
+}
+
+.card__image {
+    position: relative;
+    background-color: #1E818F;
+    padding-top: 1.5rem;
+    margin-bottom: -0.75rem;
+}
+
+.card__img {
+    width: 180px;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    z-index: 5;
+}
+
+.card__shadow {
+    width: 200px;
+    height: 200px;
+    background-color: #A2EBF5;
+    border-radius: 50%;
+    position: absolute;
+    top: 3.75rem;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    filter: blur(45px);
+}
+
+.card__data {
+    background-color: #111;
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.card__name {
+    font-size: 1.25rem;
+    color: #A2EBF5;
+    margin-bottom: 0.75rem;
+    font-family: 'Abhaya Libre', serif;
+}
+
+.card__description {
+    font-weight: 500;
+    margin-bottom: 1.75rem;
+    color: #1E818F;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-links img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.2s;
+    filter: brightness(0) invert(1);
+}
+
+.social-links img:hover {
+    transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 50%; }
+}
+
+@keyframes blinkTextCursor {
+    0% { border-right-color: #1E818F; }
+    50% { border-right-color: transparent; }
+    100% { border-right-color: transparent; }
+}
+
+/* Gradient overlay */
+.slider-section::before,
+.slider-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    z-index: 2;
+}
+
+.slider-section::before {
+    left: 0;
+    background: linear-gradient(to right, black 0%, transparent 100%);
+}
+
+.slider-section::after {
+    right: 0;
+    background: linear-gradient(to left, black 0%, transparent 100%);
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="logo.png" alt="Robotics Logo"></a>
+        </div>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="events.html">EVENTS</a>
+            <a href="resources.html">RESOURCES</a>
+            <a href="ContactUs.html">CONTACT</a>
+        </nav>
+    </header>
+
+    <section class="intro-section">
+        <h1 class="title">MEET THE TEAM</h1>
+        <p class="subtitle">Meet the innovative minds behind the robotics club, where creativity and technology come together to build the future!</p>
+        <p class="type-writer">Innovators.Builders.Visionaries</p>
+    </section>
+
+    <section class="slider-section">
+        <div class="slider">
+            <!-- First Card -->
+            <article class="card__article">
+                <div class="card__image">
+                    <img src="reddy.png" alt="Team Member" class="card__img">
+                    <div class="card__shadow"></div>
+                </div>
+                <div class="card__data">
+                    <h3 class="card__name">Ravindra Reddy</h3>
+                    <p class="card__description">
+                        Robotics Lead & AI Enthusiast
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><img src="linkedin.png" alt="LinkedIn"></a>
+                        <a href="#"><img src="GitHub.png" alt="GitHub"></a>
+                        <a href="#"><img src="insta.png" alt="Instagram"></a>
+                    </div>
+                </div>
+            </article>
+            <!-- Repeat the above card structure 7 more times with different member details -->
+            <article class="card__article">
+                <div class="card__image">
+                    <img src="reddy.png" alt="Team Member" class="card__img">
+                    <div class="card__shadow"></div>
+                </div>
+                <div class="card__data">
+                    <h3 class="card__name">Ravindra Reddy</h3>
+                    <p class="card__description">
+                        Robotics Lead & AI Enthusiast
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><img src="linkedin.png" alt="LinkedIn"></a>
+                        <a href="#"><img src="GitHub.png" alt="GitHub"></a>
+                        <a href="#"><img src="insta.png" alt="Instagram"></a>
+                    </div>
+                </div>
+            </article>
+            <article class="card__article">
+                <div class="card__image">
+                    <img src="reddy.png" alt="Team Member" class="card__img">
+                    <div class="card__shadow"></div>
+                </div>
+                <div class="card__data">
+                    <h3 class="card__name">Ravindra Reddy</h3>
+                    <p class="card__description">
+                        Robotics Lead & AI Enthusiast
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><img src="linkedin.png" alt="LinkedIn"></a>
+                        <a href="#"><img src="GitHub.png" alt="GitHub"></a>
+                        <a href="#"><img src="insta.png" alt="Instagram"></a>
+                    </div>
+                </div>
+            </article>
+            <article class="card__article">
+                <div class="card__image">
+                    <img src="reddy.png" alt="Team Member" class="card__img">
+                    <div class="card__shadow"></div>
+                </div>
+                <div class="card__data">
+                    <h3 class="card__name">Ravindra Reddy</h3>
+                    <p class="card__description">
+                        Robotics Lead & AI Enthusiast
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><img src="linkedin.png" alt="LinkedIn"></a>
+                        <a href="#"><img src="GitHub.png" alt="GitHub"></a>
+                        <a href="#"><img src="insta.png" alt="Instagram"></a>
+                    </div>
+                </div>
+            </article>
+            <article class="card__article">
+                <div class="card__image">
+                    <img src="reddy.png" alt="Team Member" class="card__img">
+                    <div class="card__shadow"></div>
+                </div>
+                <div class="card__data">
+                    <h3 class="card__name">Ravindra Reddy</h3>
+                    <p class="card__description">
+                        Robotics Lead & AI Enthusiast
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><img src="linkedin.png" alt="LinkedIn"></a>
+                        <a href="#"><img src="GitHub.png" alt="GitHub"></a>
+                        <a href="#"><img src="insta.png" alt="Instagram"></a>
+                    </div>
+                </div>
+            </article>
+            <article class="card__article">
+                <div class="card__image">
+                    <img src="reddy.png" alt="Team Member" class="card__img">
+                    <div class="card__shadow"></div>
+                </div>
+                <div class="card__data">
+                    <h3 class="card__name">Ravindra Reddy</h3>
+                    <p class="card__description">
+                        Robotics Lead & AI Enthusiast
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><img src="linkedin.png" alt="LinkedIn"></a>
+                        <a href="#"><img src="GitHub.png" alt="GitHub"></a>
+                        <a href="#"><img src="insta.png" alt="Instagram"></a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const slider = document.querySelector('.slider');
+        const cards = document.querySelectorAll('.card__article');
+        
+        // Clone cards for infinite scroll
+        cards.forEach(card => {
+            const clone = card.cloneNode(true);
+            slider.appendChild(clone);
+        });
+    });
+    </script>
+</body>
+</html>

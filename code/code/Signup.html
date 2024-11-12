@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Robotics Club</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #00f2ff;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+            width: 90%;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #00f2ff;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            text-transform: uppercase;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #00f2ff;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(0, 242, 255, 0.1);
+            border: 1px solid #00f2ff;
+            border-radius: 5px;
+            color: #fff;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            background: #00f2ff;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .links a {
+            color: #00f2ff;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" required>
+            </div>
+            <button type="submit">Sign Up</button>
+            <div class="links">
+                <a href="Login.html">Already have an account? Login</a>
+            </div>
+        </form>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Get form elements
+    const form = document.querySelector('form');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirm-password');
+    
+    // Add custom styles for error and validation messages
+    const styles = document.createElement('style');
+    styles.textContent = `
+        .form-group {
+            position: relative;
+        }
+        
+        .error-message {
+            position: absolute;
+            left: 0;
+            right: 0;
+            padding: 0.3rem;
+            margin-top: 0.2rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            animation: slideIn 0.3s ease-in-out;
+            background-color: rgba(255, 51, 51, 0.1);
+            color: #ff3333;
+            border-left: 3px solid #ff3333;
+        }
+        
+        .password-strength {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+        }
+        
+        .strength-bar {
+            height: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin-top: 0.3rem;
+        }
+        
+        .strength-bar-fill {
+            height: 100%;
+            width: 0;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .form-submitted {
+            animation: formSubmit 0.5s ease-in-out;
+        }
+
+        .success-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 242, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: overlayFade 0.5s ease-in-out;
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+        }
+
+        .success-message {
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #00f2ff;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            animation: messageScale 0.5s ease-in-out;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
+        }
+
+        @keyframes formSubmit {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(0.95); opacity: 0.5; }
+            100% { transform: scale(0.9); opacity: 0; }
+        }
+
+        @keyframes overlayFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes messageScale {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        input.valid {
+            border-color: #00ff00 !important;
+            background-color: rgba(0, 255, 0, 0.1) !important;
+        }
+        
+        input.invalid {
+            border-color: #ff3333 !important;
+            background-color: rgba(255, 51, 51, 0.1) !important;
+        }
+    `;
+    document.head.appendChild(styles);
+
+    // Storage handling
+    const userStorage = {
+        getUsers: function() {
+            const users = localStorage.getItem('users');
+            return users ? JSON.parse(users) : [];
+        },
+        
+        saveUser: function(userData) {
+            const users = this.getUsers();
+            if (users.some(user => user.email === userData.email)) {
+                throw new Error('Email already registered');
+            }
+            users.push({
+                ...userData,
+                id: Date.now(),
+                createdAt: new Date().toISOString()
+            });
+            localStorage.setItem('users', JSON.stringify(users));
+        },
+
+        checkEmailExists: function(email) {
+            const users = this.getUsers();
+            return users.some(user => user.email === email);
+        }
+    };
+
+    // Enhanced validation rules
+    const validationRules = {
+        name: {
+            minLength: 2,
+            maxLength: 50,
+            pattern: /^[a-zA-Z\s-']+$/,
+            patternMessage: 'Name can only contain letters, spaces, hyphens, and apostrophes'
+        },
+        email: {
+            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+            domainCheck: /.+\.(com|org|net|edu|gov|mil|info|io)$/i,
+            patternMessage: 'Please enter a valid email address',
+            domainMessage: 'Please use a common domain extension (com, org, net, etc.)'
+        },
+        password: {
+            minLength: 8,
+            maxLength: 128,
+            requirements: {
+                uppercase: /[A-Z]/,
+                lowercase: /[a-z]/,
+                number: /[0-9]/,
+                special: /[!@#$%^&*(),.?":{}|<>]/
+            }
+        }
+    };
+
+    // Real-time validation
+    const inputs = [nameInput, emailInput, passwordInput, confirmPasswordInput];
+    inputs.forEach(input => {
+        ['input', 'blur'].forEach(eventType => {
+            input.addEventListener(eventType, () => {
+                validateField(input, eventType === 'blur');
+            });
+        });
+    });
+
+    // Add password strength meter
+    const strengthMeter = document.createElement('div');
+    strengthMeter.className = 'password-strength';
+    strengthMeter.innerHTML = `
+        <div class="strength-text">Password Strength: <span>None</span></div>
+        <div class="strength-bar">
+            <div class="strength-bar-fill"></div>
+        </div>
+    `;
+    passwordInput.parentElement.appendChild(strengthMeter);
+
+    function validateField(input, showError = true) {
+        const value = input.value.trim();
+        let isValid = true;
+        let message = '';
+
+        switch(input.id) {
+            case 'name':
+                if (value.length < validationRules.name.minLength) {
+                    isValid = false;
+                    message = `Name must be at least ${validationRules.name.minLength} characters`;
+                } else if (value.length > validationRules.name.maxLength) {
+                    isValid = false;
+                    message = `Name must be less than ${validationRules.name.maxLength} characters`;
+                } else if (!validationRules.name.pattern.test(value)) {
+                    isValid = false;
+                    message = validationRules.name.patternMessage;
+                }
+                break;
+
+            case 'email':
+                if (!validationRules.email.pattern.test(value)) {
+                    isValid = false;
+                    message = validationRules.email.patternMessage;
+                } else if (!validationRules.email.domainCheck.test(value)) {
+                    isValid = false;
+                    message = validationRules.email.domainMessage;
+                } else if (showError && userStorage.checkEmailExists(value)) {
+                    isValid = false;
+                    message = 'This email is already registered';
+                }
+                break;
+
+            case 'password':
+                const strength = checkPasswordStrength(value);
+                updatePasswordStrength(strength);
+                
+                if (value.length < validationRules.password.minLength) {
+                    isValid = false;
+                    message = `Password must be at least ${validationRules.password.minLength} characters`;
+                } else if (value.length > validationRules.password.maxLength) {
+                    isValid = false;
+                    message = `Password must be less than ${validationRules.password.maxLength} characters`;
+                } else if (strength.score < 2) {
+                    isValid = false;
+                    message = 'Password is too weak. ' + strength.feedback;
+                }
+                
+                if (confirmPasswordInput.value) {
+                    validateField(confirmPasswordInput);
+                }
+                break;
+
+            case 'confirm-password':
+                if (value !== passwordInput.value) {
+                    isValid = false;
+                    message = 'Passwords do not match';
+                }
+                break;
+        }
+
+        updateInputStatus(input, isValid, message, showError);
+        return isValid;
+    }
+
+    function updateInputStatus(input, isValid, message, showError) {
+        removeStatus(input);
+        input.classList.add(isValid ? 'valid' : 'invalid');
+        
+        if (!isValid && showError && message) {
+            showMessage(input, message, 'error-message');
+        }
+    }
+
+    function checkPasswordStrength(password) {
+        let score = 0;
+        let feedback = [];
+        const rules = validationRules.password.requirements;
+
+        if (password.length >= 12) score += 2;
+        else if (password.length >= 8) score += 1;
+        
+        if (rules.uppercase.test(password)) score += 1;
+        else feedback.push('Add uppercase letters');
+        
+        if (rules.lowercase.test(password)) score += 1;
+        else feedback.push('Add lowercase letters');
+        
+        if (rules.number.test(password)) score += 1;
+        else feedback.push('Add numbers');
+        
+        if (rules.special.test(password)) score += 1;
+        else feedback.push('Add special characters');
+
+        if (/(.)\1{2,}/.test(password)) {
+            score -= 1;
+            feedback.push('Avoid repeated characters');
+        }
+
+        return {
+            score: Math.max(0, Math.min(5, score)),
+            feedback: feedback.join(', ') || 'Password is strong'
+        };
+    }
+
+    function updatePasswordStrength(strength) {
+        const strengthText = strengthMeter.querySelector('.strength-text span');
+        const strengthBar = strengthMeter.querySelector('.strength-bar-fill');
+        
+        const strengthLabels = ['None', 'Very Weak', 'Weak', 'Medium', 'Strong', 'Very Strong'];
+        const strengthColors = ['#ff3333', '#ff6b6b', '#ffaa00', '#f7c938', '#90ee90', '#00ff00'];
+        
+        strengthText.textContent = strengthLabels[strength.score];
+        strengthBar.style.width = `${(strength.score / 5) * 100}%`;
+        strengthBar.style.backgroundColor = strengthColors[strength.score];
+    }
+
+    function showMessage(input, message, className) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = className;
+        messageDiv.textContent = message;
+        input.parentElement.appendChild(messageDiv);
+    }
+
+    function removeStatus(input) {
+        input.classList.remove('valid', 'invalid');
+        const messages = input.parentElement.querySelectorAll('.error-message');
+        messages.forEach(msg => msg.remove());
+    }
+
+    function showSuccessOverlay(message) {
+        const overlay = document.createElement('div');
+        overlay.className = 'success-overlay';
+        
+        const messageBox = document.createElement('div');
+        messageBox.className = 'success-message';
+        messageBox.innerHTML = `
+            <h2 style="color: #00f2ff; margin-bottom: 1rem">Success!</h2>
+            <p style="color: #fff">${message}</p>
+        `;
+        
+        overlay.appendChild(messageBox);
+        document.body.appendChild(overlay);
+    }
+
+    // Form submission handler
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Validate all fields
+        let isValid = inputs.every(input => validateField(input, true));
+        
+        if (isValid) {
+            const userData = {
+                name: nameInput.value.trim(),
+                email: emailInput.value.trim(),
+                password: passwordInput.value // In a real app, hash this before storing
+            };
+            
+            try {
+                // Add submit animation
+                form.classList.add('form-submitted');
+                
+                // Save user data
+                userStorage.saveUser(userData);
+                
+                // Show success overlay
+                showSuccessOverlay('Sign up successful! Redirecting...');
+                
+                // Redirect after animation
+                setTimeout(() => {
+                    window.location.href = 'Login.html';
+                }, 2000);
+                
+            } catch (error) {
+                form.classList.remove('form-submitted');
+                showMessage(emailInput, error.message, 'error-message');
+            }
+        }
+    });
+});
+    </script>
+</body>
+</html>

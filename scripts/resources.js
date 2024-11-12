@@ -2,7 +2,7 @@
 let inventoryItems = JSON.parse(localStorage.getItem('resources')) || [];
 
 
-const inventoryGrid = document.getElementById('inventoryGrid');
+const inventoryGrid = document.getElementById('inventoryGrid'); 
 
 function createCard(item) {
     const card = document.createElement('div');
