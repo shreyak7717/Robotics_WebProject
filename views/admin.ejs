@@ -16,22 +16,22 @@
     <!-- Resources Section -->
     <div class="admin-container">
         <h2>Add New Resource</h2>
-        <form id="resourceForm">
+        <form id="resourceForm" method="post" action="/createResource" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="name">Resource Name:</label>
-                <input type="text" id="name" required>
+                <input type="text" id="name" name="title" required>
             </div>
             <div class="form-group">
                 <label for="quantity">Quantity:</label>
-                <input type="number" id="quantity" required>
+                <input type="number" id="quantity" name="quantity" required>
             </div>
             <div class="form-group">
-                <label for="image">Image URL:</label>
-                <input type="text" id="image" required>
+                <label for="image">Image:</label>
+                <input type="file" id="image" name="image" required>
             </div>
             <div class="form-group">
                 <label for="description">Description:</label>
-                <textarea id="description" rows="3"></textarea>
+                <textarea id="description" name="description" rows="3"></textarea>
             </div>
             <button type="submit">Add Resource</button>
         </form>
@@ -45,18 +45,18 @@
     <!-- Team Section -->
     <div class="admin-container">
         <h2>Add Team Member</h2>
-        <form id="teamForm">
+        <form id="teamForm" method="post" action="/createTeamMember" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="teamName">Name:</label>
-                <input type="text" id="teamName" required>
+                <input type="text" id="teamName" name="name" required>
             </div>
             <div class="form-group">
                 <label for="teamRole">Role:</label>
-                <input type="text" id="teamRole" required>
+                <input type="text" id="teamRole" name="role" required>
             </div>
             <div class="form-group">
-                <label for="teamImage">Image URL:</label>
-                <input type="text" id="teamImage" required>
+                <label for="teamImage">Image:</label>
+                <input type="file" id="teamImage" name="teamImage" required>
             </div>
             <button type="submit">Add Team Member</button>
         </form>

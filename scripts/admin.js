@@ -102,8 +102,9 @@ function displayTeamMembers() {
     `).join('');
 }
 
-document.getElementById('resourceForm').addEventListener('submit', addResource);
-document.getElementById('teamForm').addEventListener('submit', addTeamMember);
+// Comment out or remove these lines to allow form submission
+// document.getElementById('resourceForm').addEventListener('submit', addResource);
+// document.getElementById('teamForm').addEventListener('submit', addTeamMember);
 
 // Initial display
 displayResources();

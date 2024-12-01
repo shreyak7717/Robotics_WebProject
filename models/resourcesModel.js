@@ -4,10 +4,13 @@ const resourceSchema = new mongoose.Schema({
     title: {
         type: String,
     },
-    description: {
-        type: String,
+    quantity: {
+        type: Number,
     },
-
+    description :{
+        type:String,
+    },
+    
     image:{
         type: String,
     }

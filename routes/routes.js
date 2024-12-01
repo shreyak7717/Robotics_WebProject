@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const createResource = require('../controllers/resourceController');
+const { createResource, getResources } = require('../controllers/resourceController');
+const { createTeamMember, getTeamMembers } = require('../controllers/teamController');
 
 router.get('/resources',(req,res)=>{
     res.render('resources')
@@ -42,7 +43,12 @@ router.get('/timeline',(req,res)=>{
     res.render('timeline')
 })
 
-router.post('/createResource',createResource)
+router.get('/api/resources', getResources);
 
-module.exports= router;
+router.get('/api/team', getTeamMembers);
+
+router.post('/createResource', createResource);
+router.post('/createTeamMember', createTeamMember);
+
+module.exports = router;
 

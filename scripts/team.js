@@ -1,10 +1,21 @@
 document.addEventListener('DOMContentLoaded', function () {
     const slider = document.querySelector('.slider');
 
-    // Load team members from localStorage
-    let teamMembers = JSON.parse(localStorage.getItem('teamMembers')) || [];
+    async function fetchTeamMembers() {
+        try {
+            const response = await fetch('/api/team');
+            const result = await response.json();
+            if (result.success) {
+                const teamMembers = result.data;
+                renderTeamMembers(teamMembers);
+            } else {
+                console.error('Failed to fetch team members:', result.message);
+            }
+        } catch (error) {
+            console.error('Error fetching team members:', error);
+        }
+    }
 
-    // Function to create a team card
     function createCard(member) {
         const card = document.createElement('article');
         card.className = 'card__article';
@@ -26,14 +37,18 @@ document.addEventListener('DOMContentLoaded', function () {
         return card;
     }
 
-    // Render initial cards
-    teamMembers.forEach(member => {
-        slider.appendChild(createCard(member));
-    });
+    function renderTeamMembers(teamMembers) {
+        slider.innerHTML = '';
+        teamMembers.forEach(member => {
+            slider.appendChild(createCard(member));
+        });
 
-    // Clone cards for infinite scroll
-    teamMembers.forEach(member => {
-        const clone = createCard(member);
-        slider.appendChild(clone);
-    });
+        // Clone cards for infinite scroll
+        teamMembers.forEach(member => {
+            const clone = createCard(member);
+            slider.appendChild(clone);
+        });
+    }
+
+    fetchTeamMembers();
 });
