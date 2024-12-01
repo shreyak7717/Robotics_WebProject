@@ -1,16 +1,16 @@
 const express = require('express');
+const dbConnect = require('./utils/dbConnect');
+
 const app = express()
 app.set("view engine", "ejs");
 const routes = require('./routes/routes'); // Import routes from routes.js
 app.set("views", __dirname + '/views');
 app.use(express.static('./assets'));
 app.use(express.static('./scripts'));
-app.use(express.static('./apps'));
-
-const PORT = 3000;
-
 app.use('/',routes);
 
+dbConnect();
+const PORT = 3001;
 
 app.listen(PORT, (error) => {
   if (error) {
@@ -20,3 +20,5 @@ app.listen(PORT, (error) => {
     console.log(`\n\nhttp://localhost:${PORT}\n\n`);
   }
 });
+
+
