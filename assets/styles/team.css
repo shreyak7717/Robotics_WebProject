@@ -1,11 +1,11 @@
-
+/* 
 .intro-section {
-    padding: 4rem 0;
-}
+    padding: 0rem 0;
+} */
 
 .title {
     font-family: 'Abhaya Libre ExtraBold', serif;
-    font-size: 4rem;
+    font-size: 3.5rem;
     color: #A2EBF5;
     position: relative;
     left: 100px;
@@ -15,7 +15,7 @@
     font-family: 'DM Sans', sans-serif;
     font-size: 16px;
     color: #1E818F;
-    margin-top: 20px;
+    margin-top: 1px;
     width: 60%;
     position: relative;
     left: 100px;
@@ -36,7 +36,7 @@
 
 /* Slider styles */
 .slider-section {
-    margin-top: 4rem;
+    /* margin-top: 4rem; */
     position: relative;
     overflow: hidden;
     padding: 2rem 0;
@@ -79,13 +79,24 @@
     margin-bottom: -0.75rem;
 }
 
-.card__img {
+/* .card__img {
     width: 180px;
     margin: 0 auto;
     display: block;
     position: relative;
     z-index: 5;
+} */
+
+.card__img {
+    height: 170px; /* Set the fixed height */
+    width: auto; /* Let the width adjust proportionally */
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    z-index: 5;
+    object-fit: cover; /* Ensures the image fits within the height */
 }
+
 
 .card__shadow {
     width: 200px;
@@ -103,7 +114,7 @@
 .card__data {
     background-color: #111;
     padding: 1.5rem 2rem;
-    border-radius: 1rem;
+    /* border-radius: 1rem; */
     text-align: center;
     position: relative;
     z-index: 10;
@@ -118,7 +129,7 @@
 
 .card__description {
     font-weight: 500;
-    margin-bottom: 1.75rem;
+    /* margin-bottom: 1.75rem; */
     color: #1E818F;
 }
 
