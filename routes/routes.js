@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 const { createResource, getResources } = require('../controllers/resourceController');
 const { createTeamMember, getTeamMembers } = require('../controllers/teamController');
 
@@ -47,11 +46,6 @@ router.get('/timeline',(req,res)=>{
 router.get('/api/resources', getResources);
 
 router.get('/api/team', getTeamMembers);
-
-router.get('/api/contact-data', (req, res) => {
-    const dataPath = path.join(__dirname, '../data/data.json');
-    res.sendFile(dataPath);
-});
 
 router.post('/createResource', createResource);
 router.post('/createTeamMember', createTeamMember);
