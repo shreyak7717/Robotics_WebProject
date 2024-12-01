@@ -1,24 +1,25 @@
-<!-- include header -->
-<%- include('include/_header', {pageTitle:'GALLERY'}) %>
-<!-- /include header -->
+    <!-- include header -->
+    <%- include('include/_header', {pageTitle:'GALLERY'}) %>
+    <!-- /include header -->
 
-<!-- Add CSS link -->
-<link rel="stylesheet" href="/styles/gallery.css">
 
-<div id="gallery-root"></div>
-
-<!-- Scripts -->
-<script src="/scripts/gallery.js"></script>
-<script>
-    window.addEventListener('load', () => {
-        const gallery = new Gallery();
-        const galleryRoot = document.getElementById('gallery-root');
-        if (galleryRoot) {
-            galleryRoot.appendChild(gallery.render());
-        } else {
-            console.error('Gallery root element not found');
-        }
-    });
-</script>
-</body>
-</html>
+    <div class="gallery-container">
+        <div class="image-collage">
+            <img src="images/_DSC0347 2.png" alt="Robo Event 1" class="collage-image">
+            <img src="images/_DSC0347 2.png" alt="Robo Event 2" class="collage-image">
+            <img src="images//_DSC0347 2.png" alt="Robo Event 3" class="collage-image">
+        </div>
+        <div class="gallery-content">
+            <a href="/gallery1" style="text-decoration: none;"> <div class="gallery-item" data-gallery="robo-nitrous" >Robo Nitrous</div></a>
+           
+            <div class="gallery-item" data-gallery="robo-war">Robo War</div>
+            <div class="gallery-item" data-gallery="robo-soccer">Robo Soccer</div>
+            <div class="gallery-item" data-gallery="robo-race">Robo Race</div>
+            <div class="gallery-item" data-gallery="drone-racing">Drone Racing</div>
+            <div class="gallery-item" data-gallery="robo-ignite">Robo Ignite</div>
+        </div> 
+    </div>
+    <script>
+    </script>
+    </body>
+    </html>
