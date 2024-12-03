@@ -40,7 +40,22 @@
 
             <div class="resources-list">
                 <h3>Current Resources</h3>
-                <div id="resourcesList" class="resource-cards"></div>
+                <div id="resourcesList" class="resource-cards">
+                    <% if (resources && resources.length > 0) { %>
+                        <% resources.forEach(resource => { %>
+                            <div class="resource-card">
+                                <!-- Image removed as per your request -->
+                                <h4><%= resource.title %></h4>
+                                <p><%= resource.description %></p>
+                                <p>Quantity: <%= resource.quantity %></p>
+                                <button onclick="editResource('<%= resource._id %>')">Edit</button>
+                                <button onclick="deleteResource('<%= resource._id %>')">Delete</button>
+                            </div>
+                        <% }); %>
+                    <% } else { %>
+                        <p>No resources available.</p>
+                    <% } %>
+                </div>
             </div>
         </div>
 
@@ -65,8 +80,66 @@
 
             <div class="team-list">
                 <h3>Current Team Members</h3>
-                <div id="teamList" class="team-cards"></div>
+                <div id="teamList" class="team-cards">
+                    <% if (teamMembers && teamMembers.length > 0) { %>
+                        <% teamMembers.forEach(member => { %>
+                            <div class="team-card">
+                                <!-- Image removed as per your request -->
+                                <h4><%= member.name %></h4>
+                                <p><%= member.role %></p>
+                                <button onclick="editTeamMember('<%= member._id %>')">Edit</button>
+                                <button onclick="deleteTeamMember('<%= member._id %>')">Delete</button>
+                            </div>
+                        <% }); %>
+                    <% } else { %>
+                        <p>No team members available.</p>
+                    <% } %>
+                </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Edit Resource Modal -->
+    <div id="editResourceModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditResourceModal()">&times;</span>
+            <h2>Edit Resource</h2>
+            <form id="editResourceForm">
+                <input type="hidden" id="editResourceId" name="id">
+                <div class="form-group">
+                    <label for="editResourceName">Resource Name:</label>
+                    <input type="text" id="editResourceName" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="editResourceQuantity">Quantity:</label>
+                    <input type="number" id="editResourceQuantity" name="quantity" required>
+                </div>
+                <div class="form-group">
+                    <label for="editResourceDescription">Description:</label>
+                    <textarea id="editResourceDescription" name="description" rows="3"></textarea>
+                </div>
+                <button type="submit">Update Resource</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Team Member Modal -->
+    <div id="editTeamMemberModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditTeamMemberModal()">&times;</span>
+            <h2>Edit Team Member</h2>
+            <form id="editTeamMemberForm">
+                <input type="hidden" id="editTeamMemberId" name="id">
+                <div class="form-group">
+                    <label for="editTeamMemberName">Name:</label>
+                    <input type="text" id="editTeamMemberName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="editTeamMemberRole">Role:</label>
+                    <input type="text" id="editTeamMemberRole" name="role" required>
+                </div>
+                <button type="submit">Update Team Member</button>
+            </form>
         </div>
     </div>
 

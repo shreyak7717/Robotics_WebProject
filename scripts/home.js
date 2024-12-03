@@ -27,9 +27,9 @@ header.appendChild(logoDiv);
 const nav = document.createElement('nav');
 const navItems = [
   { href: '/', text: 'HOME' },
-  { href: '/events', text: 'EVENTS' },
-  { href: '/resources', text: 'RESOURCES' },
-  { href: '/ContactUs', text: 'CONTACT' },
+  // { href: 'http://localhost:3001/events', text: 'EVENTS' },
+  { href: 'http://localhost:3001/resources', text: 'RESOURCES' },
+  { href: 'http://localhost:3001/ContactUs', text: 'CONTACT' },
 ];
 
 navItems.forEach(item => {
